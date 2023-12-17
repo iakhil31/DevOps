@@ -9,9 +9,6 @@
  echo "NUM is a Even Number"
  else
  echo "NUM is a Odd Number"
-#<<<<<<< HEAD
- fi 
-#=======
- #fi
+ fi
  done 
-#>>>>>>> 3926a1adc4786a2f29652794ce2da798620404a0
+
