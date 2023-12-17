@@ -1,6 +1,7 @@
 #Scripting for Even & Odd Numbrs.
  #!/bin/bash
- for I in {1..5}
+ #for I in {1..5}
+ While true;
  do
  read -p "Please Enter A valid number: " NUM
  echo $NUM
