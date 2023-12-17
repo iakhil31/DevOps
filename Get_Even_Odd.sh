@@ -12,3 +12,4 @@
  echo "NUM is a Odd Number"
  fi
  done 
+
