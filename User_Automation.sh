@@ -7,11 +7,21 @@
 # - Force user to reset the password on first login
 
 #!/bin/bash
-
-USERNAME=$1
-EXISTING_USER=$(cat /etc/passwd | grep -i -w ${USERNAME} | cut -d ':' -f 1)
-if [ "${USERNAME}" = "${EXISTING_USER}" ]; then
-echo "The User "${USERNAME}" Already Exists."
+if [ $# -gt 0 ]; then
+    USERNAME=$1
+    EXISTING_USER=$(cat /etc/passwd | grep -i -w ${USERNAME} | cut -d ':' -f 1)
+    if [ "${USERNAME}" = "${EXISTING_USER}" ]; then
+       echo "The User "${USERNAME}" Already Exists."
 else
-echo "Lets Create The user "${USERNAME}". "|
+        echo "Lets Create The user "${USERNAME}"." 
+        sudo useradd -m ${USERNAME} --shell /bin/bash 
+        sudo usermod -aG sudo ${USERNAME}
+        echo '${USERNAME} ALL=(ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers
+        SPEC=$(echo ' 1@#$%*&*()_' | fold -wl | shuf | head -1)
+        PASSWORD="India@${RANDOM}${SPEC}"
+        echo "${USERNAME):${PASSWORD}" | sudo chpasswd
+        passwd -e ${USERNAME}
+   fi 
+else
+     echo "Provide Valid Argument."
 fi
