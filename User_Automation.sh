@@ -8,7 +8,6 @@
 
 #!/bin/bash
 if [ $# -gt 0 ]; then
-<<<<<<< HEAD
     USERNAME=$1
     EXISTING_USER=$(cat /etc/passwd | grep -i -w ${USERNAME} | cut -d ':' -f 1)
     if [ "${USERNAME}" = "${EXISTING_USER}" ]; then
@@ -26,15 +25,3 @@ else
 else
      echo "Provide Valid Argument."
 fi
-=======
-USERNAME=$1
-EXISTING_USER=$(cat /etc/passwd | grep -i -w ${USERNAME} | cut -d ':' -f 1)
-if [ "${USERNAME}" = "${EXISTING_USER}" ]; then
-echo "The User "${USERNAME}" Already Exists."
-else
-echo "Lets Create The user "${USERNAME}"."|
-fi
-else
-	echo "Provide Valid Argument."
-fi
->>>>>>> 7735dff508af86e5affdfe7069bf169a2a0eab92
