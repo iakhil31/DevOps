@@ -15,9 +15,11 @@ else
         echo "${USERNAME}:${PASSWORD}" | sudo chpasswd
         passwd -e ${USERNAME}
         #echo "The Temporary Credentails are ${USERNAME} and ${PASSWORD}"
-        curl -X POST -H 'content-type: application/json' --data '{"text": "${USERNAME} ${PASSWORD}"}'  $SLACK_WEB
+        curl -X POST $SLACK_WEB -H 'content-type: application/json' --data "{"text": \"${USERNAME}\"}"
+        curl -X POST $SLACK_WEB -H 'content-type: application/json' --data "{"text": \"${PASSWORD}\"}"
     fi
     done
 else
     echo "Private Valid Argument."
 fi
+
