@@ -19,7 +19,7 @@ else
         echo '${USERNAME} ALL=(ALL) NOPASSWD: ALL'  >>/etc/sudoers
         SPEC=$(echo ' !@#$%^&*()_' | fold -w1 | shuf | head -1)
         PASSWORD="India@${RANDOM}${SPEC}"
-        echo "${USERNAME):${PASSWORD}" | sudo chpasswd
+        echo "${USERNAME}:${PASSWORD}" | sudo chpasswd
         passwd -e ${USERNAME}
         echo "The Temporary Credentails are ${USERNAME} and ${PASSWORD}"
    fi 
