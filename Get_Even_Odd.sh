@@ -1,6 +1,5 @@
 #Scripting for Even & Odd Numbrs.
  #!/bin/bash
- for p in {1..5}
  read p "Please Enter A valid number: " NUM
  echo $NUM
  if [ $(expr $NUM % 2) -eq 0 ]
