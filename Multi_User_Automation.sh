@@ -5,7 +5,7 @@ if [ $# -gt 0 ]; then
     EXISTING_USER=$(cat /etc/passwd | grep -i -w ${USERNAME} | cut -d ':' -f 1)
     if [ "${USERNAME}" = "${EXISTING_USER)" ]; then
         echo "The User "${USERNAME}" Already Exists."
-else
+        else
         echo "Lets Create The user "${USERNAME}"."
         sudo useradd -m ${USERNAME} --shell /bin/bash 
         sudo usermod -aG sudo ${USERNAME}
