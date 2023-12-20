@@ -15,7 +15,9 @@ else
         echo "${USERNAME}:${PASSWORD}" | sudo chpasswd
         passwd -e ${USERNAME}
         #echo "The Temporary Credentails are ${USERNAME} and ${PASSWORD}"
+        curl -X POST $SLACK_WEB -H 'content-type: application/json' --data "{"text": \"The Username Is\"}"
         curl -X POST $SLACK_WEB -H 'content-type: application/json' --data "{"text": \"${USERNAME}\"}"
+        curl -X POST $SLACK_WEB -H 'content-type: application/json' --data "{"text": \"The Password Is\"}"
         curl -X POST $SLACK_WEB -H 'content-type: application/json' --data "{"text": \"${PASSWORD}\"}"
     fi
     done
