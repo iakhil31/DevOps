@@ -1,5 +1,5 @@
 #!/bin/bash
-SLACK_WEB= https://hooks.slack.com/services/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 
+SLACK_WEB= 'https://hooks.slack.com/services/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' 
 if [ $# -gt 0 ]; then 
     for USERNAME in $@; do
     EXISTING_USER=$(cat /etc/passwd | grep -i -w ${USERNAME} | cut -d ':' -f 1)
@@ -9,7 +9,7 @@ else
         echo "Lets Create The user "${USERNAME}"."
         sudo useradd -m ${USERNAME} --shell /bin/bash 
         sudo usermod -aG sudo ${USERNAME}
-        echo '${USERNAME} ALL=(ALL) NOPASSWD: ALL' >>/etc/sudoers
+        echo '${USERNAME} ALL=(ALL) NOPASSWD: ALL' >>/etc/sudoiers
         SPEC=$ (echo ' !@#$%^&*()_' | fold -w1 | shuf | head -1)
         PASSWORD="India@${RANDOM}${SPEC}"
         echo "${USERNAME}:${PASSWORD}" | sudo chpasswd
