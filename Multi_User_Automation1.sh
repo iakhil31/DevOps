@@ -1,5 +1,5 @@
 #!/bin/bash
-SLACK_WEB='https://hooks.slack.com/services/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'
+SLACK_WEB='https://hooks.slack.com/services/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'
 if [ $# -gt 0 ]; then
     for USERNAME in $@; do
         EXISTING_USER=$(cat /etc/passwd | grep -i -w ${USERNAME} | cut -d ':' -f 1)
