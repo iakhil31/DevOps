@@ -8,7 +8,7 @@ for ((i = $STRING_LEN; i >= 0; i--)); do
     STRING_REV=${STRING_REV}$X
 done
 if [ ${STRING} = ${STRING_REV} ]; then
-    echo "${STRING} is a PLAINDROME"
+    echo "${STRING} is a PALINDROME"
 else
-    echo "${STRING} is a NON-PLAINDROME"
+    echo "${STRING} is a NON-PALINDROME"
 fi
