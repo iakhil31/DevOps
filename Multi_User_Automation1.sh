@@ -4,7 +4,7 @@
 #SLACK_WEB='https://hooks.slack.com/services/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'
 #SLACK_WEB='https://hooks.slack.com/services/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'
 #SLACK_WEB='https://hooks.slack.com/services/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'
-SLACKWEB ='https://hooks.slack.com/services/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'
+SLACKWEB = 'https://hooks.slack.com/services/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'
 if [ $# -gt 0 ]; then
     for USERNAME in $@; do
         EXISTING_USER=$(cat /etc/passwd | grep -i -w ${USERNAME} | cut -d ':' -f 1)
