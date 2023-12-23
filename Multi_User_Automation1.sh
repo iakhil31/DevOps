@@ -4,7 +4,7 @@
 #SLACK_WEB='https://hooks.slack.com/services/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'
 #SLACK_WEB='https://hooks.slack.com/services/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'
 #SLACK_WEB='https://hooks.slack.com/services/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'
-SLACK_WEB='https://hooks.slack.com/services/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'
+SLACKWEB ='https://hooks.slack.com/services/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'
 if [ $# -gt 0 ]; then
     for USERNAME in $@; do
         EXISTING_USER=$(cat /etc/passwd | grep -i -w ${USERNAME} | cut -d ':' -f 1)
@@ -20,8 +20,8 @@ if [ $# -gt 0 ]; then
             echo "${USERNAME}:${PASSWORD}" | sudo chpasswd
             passwd -e ${USERNAME} >>/dev/null
             #echo "The Temporary Credentails are ${USERNAME} and ${PASSWORD}"
-            curl -X POST ${SLACK_WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Username is: ${USERNAME}\"}" >>/dev/null
-            curl -X POST ${SLACK_WEB} -sL -H 'Content-type: application/json' --data "{"text": \"Temporary Password Is: ${PASSWORD}  Reset This Password Immediatly.\"}" >>/dev/null
+            curl -X POST ${SLACKWEB} -sL -H 'Content-type: application/json' --data "{"text": \"Username is: ${USERNAME}\"}" >>/dev/null
+            curl -X POST ${SLACKWEB} -sL -H 'Content-type: application/json' --data "{"text": \"Temporary Password Is: ${PASSWORD}  Reset This Password Immediatly.\"}" >>/dev/null
         fi
     done
 else
