@@ -24,4 +24,3 @@ if [ $# -gt 0 ]; then
 else
     echo "Provide Valid Argument."
 fi
-https://hooks.slack.com/services/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
