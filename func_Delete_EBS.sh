@@ -18,7 +18,7 @@ unttached_ebs() {
         #     echo '-----------------------------------------'
         # else
         #     echo "Lets Delete VOlume $VOL"
-        #     aws ec2 delete-volume --volume-id $VOL 
+        #     aws ec2 delete-volume --volume-id $VOL
         #     echo '-----------------------------------------'
         # fi
         if [ "${STATE}" != 'in-use' ]; then
